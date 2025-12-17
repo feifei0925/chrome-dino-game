@@ -136,3 +136,6 @@ def get_local_ip():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
+
+# Vercel 导出（必须添加这一行！）
+app = app
