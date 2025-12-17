@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome小恐龙游戏</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-dragon"></i> Chrome小恐龙游戏</h1>
+            <div class="score-board">
+                <div class="score">分数: <span id="score">0</span></div>
+                <div class="high-score">最高分: <span id="high-score">0</span></div>
+                <div class="speed">速度: <span id="speed">5</span></div>
+            </div>
+        </header>
+
+        <div class="game-container">
+            <canvas id="game-canvas" width="800" height="300"></canvas>
+            
+            <div class="game-controls">
+                <div class="player-input">
+                    <input type="text" id="player-name" placeholder="输入你的名字" value="玩家">
+                    <button id="start-btn" class="btn btn-start">
+                        <i class="fas fa-play"></i> 开始游戏
+                    </button>
+                    <button id="restart-btn" class="btn btn-restart" disabled>
+                        <i class="fas fa-redo"></i> 重新开始
+                    </button>
+                </div>
+                
+                <div class="controls-info">
+                    <p><i class="fas fa-space-shuttle"></i> 空格键/↑: 跳跃</p>
+                    <p><i class="fas fa-arrow-down"></i> ↓: 蹲下躲避</p>
+                    <p><i class="fas fa-undo"></i> R键: 重新开始</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-status" id="game-status">
+            <h2>按空格键开始游戏！</h2>
+        </div>
+
+        <div class="leaderboard">
+            <h3><i class="fas fa-trophy"></i> 排行榜</h3>
+            <ul id="leaderboard-list">
+                <li>加载中...</li>
+            </ul>
+        </div>
+
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> 游戏说明</h3>
+            <p>1. 控制小恐龙跳过仙人掌，蹲下躲避飞鸟</p>
+            <p>2. 游戏速度会随着分数增加而加快</p>
+            <p>3. 碰到障碍物游戏结束</p>
+            <p>4. 在局域网内分享 <code id="server-url">http://localhost:5000</code></p>
+        </div>
+
+        <footer>
+            <p>© 2024 Chrome Dino Game | 使用 Flask + JavaScript 构建</p>
+            <p>可通过局域网访问：<span id="local-ip">正在获取IP...</span></p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
